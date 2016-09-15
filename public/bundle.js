@@ -42,9 +42,9 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/*!***********************!*\
-  !*** ./src/js/app.js ***!
-  \***********************/
+/*!********************!*\
+  !*** ./src/app.js ***!
+  \********************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57,26 +57,83 @@
 	
 	var _reactRouter = __webpack_require__(/*! react-router */ 172);
 	
-	var _App = __webpack_require__(/*! ./components/App */ 238);
+	var _Main = __webpack_require__(/*! ./common/Main */ 235);
+	
+	var _Main2 = _interopRequireDefault(_Main);
+	
+	var _App = __webpack_require__(/*! ./components/App */ 236);
 	
 	var _App2 = _interopRequireDefault(_App);
 	
-	var _Car = __webpack_require__(/*! ./components/Car */ 239);
+	var _Car = __webpack_require__(/*! ./components/Car */ 237);
 	
 	var _Car2 = _interopRequireDefault(_Car);
 	
-	var _About = __webpack_require__(/*! ./components/About */ 240);
+	var _CarDetail = __webpack_require__(/*! ./components/CarDetail */ 238);
+	
+	var _CarDetail2 = _interopRequireDefault(_CarDetail);
+	
+	var _About = __webpack_require__(/*! ./components/About */ 239);
 	
 	var _About2 = _interopRequireDefault(_About);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	var data = [{
+	  id: 1,
+	  name: 'Honda Accord Crosstour',
+	  year: '2010',
+	  model: 'Accord Crosstour',
+	  make: 'Honda',
+	  media: 'http://media.ed.edmunds-media.com/honda/accord-crosstour/2010/oem/2010_honda_accord-crosstour_4dr-hatchback_ex-l_fq_oem_4_500.jpg',
+	  price: '$16,811'
+	}, {
+	  id: 2,
+	  name: 'Mercedes-Benz AMG GT Coupe',
+	  year: '2016',
+	  model: 'AMG',
+	  make: 'Mercedes Benz',
+	  media: 'http://media.ed.edmunds-media.com/mercedes-benz/amg-gt/2016/oem/2016_mercedes-benz_amg-gt_coupe_s_fq_oem_1_717.jpg',
+	  price: '$138,157'
+	}, {
+	  id: 3,
+	  name: 'BMW X6 SUV',
+	  year: '2016',
+	  model: 'X6',
+	  make: 'BMW',
+	  media: 'http://media.ed.edmunds-media.com/bmw/x6/2016/oem/2016_bmw_x6_4dr-suv_xdrive50i_fq_oem_1_717.jpg',
+	  price: '$68,999'
+	}, {
+	  id: 4,
+	  name: 'Ford Edge SUV',
+	  year: '2016',
+	  model: 'Edge',
+	  make: 'Ford',
+	  media: 'http://media.ed.edmunds-media.com/ford/edge/2016/oem/2016_ford_edge_4dr-suv_sport_fq_oem_6_717.jpg',
+	  price: '$36,275'
+	}, {
+	  id: 5,
+	  name: 'Dodge Viper Coupe',
+	  year: '2017',
+	  model: 'Viper',
+	  make: 'Dodge',
+	  media: 'http://media.ed.edmunds-media.com/dodge/viper/2017/oem/2017_dodge_viper_coupe_acr_fq_oem_3_717.jpg',
+	  price: '$123,890'
+	}];
+	
 	(0, _reactDom.render)(_react2.default.createElement(
 	  _reactRouter.Router,
-	  null,
-	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _App2.default }),
-	  _react2.default.createElement(_reactRouter.Route, { path: '/cars', component: _Car2.default }),
-	  _react2.default.createElement(_reactRouter.Route, { path: '/about', component: _About2.default })
+	  { history: _reactRouter.browserHistory },
+	  _react2.default.createElement(
+	    _reactRouter.Route,
+	    { component: _Main2.default },
+	    '// ',
+	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _App2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: '/', component: _App2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: '/cars', component: _Car2.default, data: data }),
+	    _react2.default.createElement(_reactRouter.Route, { path: '/cars/:id', component: _CarDetail2.default, data: data }),
+	    _react2.default.createElement(_reactRouter.Route, { path: '/about', component: _About2.default })
+	  )
 	), document.getElementById('app'));
 
 /***/ },
@@ -27805,13 +27862,120 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 235 */,
-/* 236 */,
-/* 237 */,
-/* 238 */
-/*!***********************************!*\
-  !*** ./src/js/components/App.jsx ***!
-  \***********************************/
+/* 235 */
+/*!*****************************!*\
+  !*** ./src/common/Main.jsx ***!
+  \*****************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouter = __webpack_require__(/*! react-router */ 172);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Main = function (_Component) {
+	    _inherits(Main, _Component);
+	
+	    function Main() {
+	        _classCallCheck(this, Main);
+	
+	        return _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).apply(this, arguments));
+	    }
+	
+	    _createClass(Main, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                    'nav',
+	                    { className: 'navbar navbar-default' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'container-fluid' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'navbar-header' },
+	                            _react2.default.createElement(
+	                                'a',
+	                                { className: 'navbar-brand', href: '#' },
+	                                'Scotch Cars'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'nabvar-collapse', id: 'bs-example-nabvar-collapse-1' },
+	                            _react2.default.createElement(
+	                                'ul',
+	                                { className: 'nav navbar-nav' },
+	                                _react2.default.createElement(
+	                                    'li',
+	                                    null,
+	                                    _react2.default.createElement(
+	                                        _reactRouter.Link,
+	                                        { to: '/', activeClassName: 'active' },
+	                                        'Home'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'li',
+	                                    null,
+	                                    _react2.default.createElement(
+	                                        _reactRouter.Link,
+	                                        { to: '/cars', activeClassName: 'active' },
+	                                        'Cars'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'li',
+	                                    null,
+	                                    _react2.default.createElement(
+	                                        _reactRouter.Link,
+	                                        { to: '/about', activeClassName: 'active' },
+	                                        'About'
+	                                    )
+	                                )
+	                            )
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'container' },
+	                    this.props.children
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return Main;
+	}(_react.Component);
+	
+	exports.default = Main;
+
+/***/ },
+/* 236 */
+/*!********************************!*\
+  !*** ./src/components/App.jsx ***!
+  \********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27849,7 +28013,7 @@
 	      return _react2.default.createElement(
 	        'h1',
 	        null,
-	        'Hi'
+	        'test'
 	      );
 	    }
 	  }]);
@@ -27860,10 +28024,10 @@
 	exports.default = App;
 
 /***/ },
-/* 239 */
-/*!***********************************!*\
-  !*** ./src/js/components/Car.jsx ***!
-  \***********************************/
+/* 237 */
+/*!********************************!*\
+  !*** ./src/components/Car.jsx ***!
+  \********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27877,6 +28041,8 @@
 	var _react = __webpack_require__(/*! react */ 1);
 	
 	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouter = __webpack_require__(/*! react-router */ 172);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -27898,10 +28064,28 @@
 	  _createClass(Car, [{
 	    key: 'render',
 	    value: function render() {
+	      var cars = this.props.route.data;
+	      var carNode = cars.map(function (car) {
+	        return _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: "/cars/" + car.id, className: 'list-group-item', key: car.id },
+	          car.name
+	        );
+	      });
+	
 	      return _react2.default.createElement(
-	        'h1',
+	        'div',
 	        null,
-	        'Cars page'
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          'Cars page'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'list-group' },
+	          carNode
+	        )
 	      );
 	    }
 	  }]);
@@ -27912,10 +28096,155 @@
 	exports.default = Car;
 
 /***/ },
-/* 240 */
-/*!*************************************!*\
-  !*** ./src/js/components/About.jsx ***!
-  \*************************************/
+/* 238 */
+/*!**************************************!*\
+  !*** ./src/components/CarDetail.jsx ***!
+  \**************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouter = __webpack_require__(/*! react-router */ 172);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var CarDetail = function (_Component) {
+	    _inherits(CarDetail, _Component);
+	
+	    function CarDetail() {
+	        _classCallCheck(this, CarDetail);
+	
+	        return _possibleConstructorReturn(this, (CarDetail.__proto__ || Object.getPrototypeOf(CarDetail)).apply(this, arguments));
+	    }
+	
+	    _createClass(CarDetail, [{
+	        key: 'handleRedirect',
+	        value: function handleRedirect() {
+	            _reactRouter.browserHistory.push('/cars');
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var cars = this.props.route.data;
+	            var id = this.props.params.id;
+	            var car = cars.filter(function (car) {
+	                if (car.id == id) {
+	                    return car;
+	                }
+	            });
+	
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'col-md-12' },
+	                    _react2.default.createElement(
+	                        'button',
+	                        { className: 'btn btn-default', onClick: this.handleRedirect.bind(this) },
+	                        'Go to Cars'
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'h1',
+	                    null,
+	                    car[0].name
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'row' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-sm-6 col-md-4' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'thumbnail' },
+	                            _react2.default.createElement('img', { src: car[0].media, alt: car[0].name })
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-sm-6 col-md-4' },
+	                        _react2.default.createElement(
+	                            'ul',
+	                            null,
+	                            _react2.default.createElement(
+	                                'li',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'strong',
+	                                    null,
+	                                    'Model'
+	                                ),
+	                                ': ',
+	                                car[0].model
+	                            ),
+	                            _react2.default.createElement(
+	                                'li',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'strong',
+	                                    null,
+	                                    'Make'
+	                                ),
+	                                ': ',
+	                                car[0].make
+	                            ),
+	                            _react2.default.createElement(
+	                                'li',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'strong',
+	                                    null,
+	                                    'Year'
+	                                ),
+	                                ': ',
+	                                car[0].year
+	                            ),
+	                            _react2.default.createElement(
+	                                'li',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'strong',
+	                                    null,
+	                                    'Price'
+	                                ),
+	                                ': ',
+	                                car[0].price
+	                            )
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return CarDetail;
+	}(_react.Component);
+	
+	exports.default = CarDetail;
+
+/***/ },
+/* 239 */
+/*!**********************************!*\
+  !*** ./src/components/About.jsx ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

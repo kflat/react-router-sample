@@ -1,7 +1,7 @@
 module.exports = {
-  entry: __dirname + '/src/js/app.js',
+  entry: __dirname + '/src/app.js',
   output: {
-    path: __dirname + '/dist',
+    path: __dirname + '/public',
     filename: 'bundle.js',
   },
   module: {
@@ -12,6 +12,7 @@ module.exports = {
         loader: 'babel-loader',
         query: {
           presets: ['react', 'es2015'],
+          plugins: ['transform-function-bind'],
         },
       },
     ],

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-export default class Car extends Component {
+export default class App extends Component {
   render() {
     return (
-      <h1>Cars page</h1>
+      <h1>test</h1>
     );
   }
 }
